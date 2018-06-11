@@ -2,13 +2,8 @@ package hedgeit.com;
 
 import com.rest.hedgeit.HedgeItTradeGet;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
-
-import org.testng.annotations.Test;
-import static io.restassured.RestAssured.*;
-
-import static org.hamcrest.Matchers.*;
+import cucumber.api.java.en.When;
 
 
 
@@ -22,8 +17,9 @@ public class SampleStepDefs {
         belly.eat(cukes);
     }
 
-    @When("I wait {int} hour")
-    public void i_wait_hour(Integer int1) throws Throwable {
+
+    @When("^I wait (\\d+) hour$")
+    public void iWaitHour(int arg0) throws Throwable {
         System.out.print("step two");
     }
 
@@ -33,13 +29,15 @@ public class SampleStepDefs {
         System.out.print("step three");
     }
 
-    @Given("An instance of Ergast motor racing season {int}")
-    public void an_instance_of_Ergast_motor_racing_of_season(Integer int1) throws Throwable {
+
+
+    @Given("^An instance of Ergast motor racing season (\\d+)$")
+    public void anInstanceOfErgastMotorRacingSeason(int int1) throws Throwable {
         Trade.racingSeason(int1);
     }
 
-    @When("I request circuit data of season using the ReST API {string}")
-    public void i_request_that_trade_using_the_ReST_API(String circuitAPI) throws Throwable {
+    @When("^I request circuit data of season using the ReST API \"([^\"]*)\"$")
+    public void iRequestCircuitDataOfSeasonUsingTheReSTAPI(String circuitAPI) throws Throwable {
         //get(circuitAPI);
         /* APIPath = circuitAPI;
         get(APIPath).
@@ -47,12 +45,11 @@ public class SampleStepDefs {
                 assertThat().
                 statusCode(200); */
         Trade.GetRequest(circuitAPI);
-
     }
 
-    @Then("I receive the JSON array of {int} records")
-    public void i_receive_the_JSON_array_of_records(Integer int1) throws Throwable {
-        /* get(APIPath).
+    @Then("^I receive the JSON array of (\\d+) records$")
+    public void iReceiveTheJSONArrayOfRecords(int int1) throws Throwable {
+         /* get(APIPath).
                 then().
                 assertThat().
                 body("MRData.CircuitTable.Circuits.circuitId", hasSize(20)); */
