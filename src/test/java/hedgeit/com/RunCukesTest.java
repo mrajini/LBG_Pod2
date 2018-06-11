@@ -7,11 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        features = {"\\src\\test\\resources\\hedgeit\\com\\sample.feature"},
+        features = "./src/test/resources/hedgeit/com",
         plugin = {"pretty","html:target/reportshtml","json:target/reportsjson"},
-        tags = {"@FuntionalTest"
-
-}
+        tags = {}
 )
 
 
