@@ -56,7 +56,7 @@ public class SampleStepDefs {
 
     }
 
-    @When("^I request that trade using following ReST API \"([^\"]*)\"$")
+    @When("^I request that trade using following Rest API \"([^\"]*)\"$")
     public void getTradeAPI(String API) throws Exception {
         //System.out.println("API is : "+API);
         int code = get(API).getStatusCode();
