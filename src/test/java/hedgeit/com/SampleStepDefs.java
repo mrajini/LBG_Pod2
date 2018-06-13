@@ -15,6 +15,7 @@ import org.testng.Assert;
 
 public class SampleStepDefs {
     String APIPath;
+    int id;
     HedgeItTradeGet Trade = new HedgeItTradeGet();
 
     @Given("^I have (\\d+) cukes in my belly$")
@@ -51,15 +52,17 @@ public class SampleStepDefs {
     }
 
     @Given("^an instance of HedgeIt that contains following trade (\\d+)$")
-    public void instanceOfHedgeItTrade(int arg1) throws Exception {
-        System.out.println(arg1);
+    public void instanceOfHedgeItTrade(int hedgeitID) throws Exception {
+        System.out.println(hedgeitID);
+        id = hedgeitID;
 
     }
 
     @When("^I request that trade using following Rest API \"([^\"]*)\"$")
     public void getTradeAPI(String API) throws Exception {
         //System.out.println("API is : "+API);
-        int code = get(API).getStatusCode();
+        APIPath = API;
+        int code = get(APIPath).getStatusCode();
         System.out.println(code);
         Assert.assertEquals(code, 200);
     }
@@ -69,6 +72,12 @@ public class SampleStepDefs {
         List<List<String>> data = table.raw();
         System.out.println(" "+data.get(0).get(1));
         System.out.println(" "+data.get(1).get(1));
+
+        String body=get(APIPath+"/"+id).asString();
+        long time=get(APIPath+"/"+id).getTime();
+
+        System.out.println("Data is : "+body);
+        System.out.println("Response Time "+time);
 
     }
 
