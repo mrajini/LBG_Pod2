@@ -1,10 +1,10 @@
 Feature: Sample Tests
 
   @FunctionalTest
-  Scenario: A few cukes in belly
-    Given I have 42 cukes in my belly
-    When I wait 1 hour
-    Then my belly should growl
+  Scenario: Test scenario
+    Given I requested 42 trades
+    When I wait 2 hour
+    Then verify trade requested are 42
 
   @FunctionalTest
   Scenario: Receiving JSON array
@@ -20,7 +20,7 @@ Feature: Sample Tests
     | Trade Name   | <trade_name> |
     | Trade Mode   | <trade_mode> |
     Examples:
-    | id            | rest_api                        | trade_name      | trade_mode | date             |
-    | 11            | "http://localhost:3000/Trade"   | Hedgeit Bonds   | Cash       | "12/06/2018"     |
-    | 22            | "http://localhost:3000/Trade"   | Currency Funds  | SWIFT      | "17/05/2018"     |
-    | 33            | "http://localhost:3000/Trade"   | Equity Funds    | Cash       | "20/10/2017"     |
+    | id            | rest_api                        | trade_name      | trade_mode | date            |
+    | 11            | "http://localhost:3000/Trade"   | Hedgeit Bonds   | Cash       | "12/06/2018"    |
+    | 22            | "http://localhost:3000/Trade"   | Currency Funds  | SWIFT      | "17/05/2018"    |
+    | 33            | "http://localhost:3000/Trade"   | Equity Funds    | Cash       | "20/10/2017"    |

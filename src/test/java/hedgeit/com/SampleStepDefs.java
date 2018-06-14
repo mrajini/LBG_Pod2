@@ -18,7 +18,7 @@ public class SampleStepDefs {
     int id;
     HedgeItTradeGet Trade = new HedgeItTradeGet();
 
-    @Given("^I have (\\d+) cukes in my belly$")
+    @Given("^I requested (\\d+) trades$")
     public void I_have_cukes_in_my_belly(int cukes) throws Throwable {
         SamplePage belly = new SamplePage();
         belly.eat(cukes);
@@ -27,13 +27,14 @@ public class SampleStepDefs {
 
     @When("^I wait (\\d+) hour$")
     public void iWaitHour(int arg0) throws Throwable {
-        System.out.print("step two");
+        System.out.println("Wait for "+arg0+" hours");
     }
 
-    @Then("my belly should growl")
-    public void my_belly_should_growl() throws Throwable {
+    @Then("verify trade requested are (\\d+)")
+    public void my_belly_should_growl(int cukes) throws Throwable {
         SamplePage belly = new SamplePage();
-        System.out.print("step three");
+        //System.out.println("step three");
+        belly.eat(cukes);
     }
 
     @Given("^An instance of Ergast motor racing season (\\d+)$")
