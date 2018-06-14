@@ -1,19 +1,19 @@
-Feature: Belly
+Feature: Sample Tests
 
   @FunctionalTest
-  Scenario: a few cukes
+  Scenario: A few cukes in belly
     Given I have 42 cukes in my belly
     When I wait 1 hour
     Then my belly should growl
 
   @FunctionalTest
-  Scenario:
+  Scenario: Receiving JSON array
     Given An instance of Ergast motor racing season 2017
     When I request circuit data of season using the ReST API "http://ergast.com/api/f1/2017/circuits.json"
     Then I receive the JSON array of 20 records
 
   @FunctionalTest
-  Scenario Outline:
+  Scenario Outline: Trade assertions with different datatypes
     Given an instance of HedgeIt that contains following trade <id>
     When I request that trade using following Rest API <rest_api>
     Then I receive the following JSON array with following:
