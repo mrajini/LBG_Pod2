@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0c694-b585-4065-9cbe-be4a550d6f4c" name="Default" comment="Added assertions to the test">
+      <change afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LBG_Pod2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/LBG_Pod2.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/hedgeit/com/RunCukesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hedgeit/com/RunCukesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/hedgeit/com/SampleStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hedgeit/com/SampleStepDefs.java" afterDir="false" />
@@ -433,8 +434,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="60" y="23" width="1504" height="935" extended-state="0" />
-    <editor active="true" />
+    <frame x="60" y="23" width="1504" height="935" extended-state="1" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32883435" />
