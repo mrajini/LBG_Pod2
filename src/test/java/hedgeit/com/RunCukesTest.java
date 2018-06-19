@@ -13,8 +13,8 @@ import org.junit.runner.RunWith;
 )
 
 
-//@CucumberOptions(plugin = {"pretty", "io.cucumber.pro.JsonReporter:all"},
-//tags = "@FuntionalTest")
 
 public class RunCukesTest {
+
+
 }

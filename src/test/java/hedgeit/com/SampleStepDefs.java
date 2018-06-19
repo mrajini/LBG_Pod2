@@ -1,16 +1,19 @@
 package hedgeit.com;
 
-import com.rest.hedgeit.HedgeItTradeGet;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import java.util.List;
-import cucumber.api.DataTable;
-import org.testng.Assert;
+        import com.rest.hedgeit.HedgeItTradeGet;
+        import cucumber.api.PendingException;
+        import cucumber.api.java.en.Given;
+        import cucumber.api.java.en.Then;
+        import cucumber.api.java.en.When;
+        import java.util.List;
+        import cucumber.api.DataTable;
+        import io.restassured.response.ResponseBody;
+        import org.testng.Assert;
 
-import static io.restassured.RestAssured.*;
-import io.restassured.response.Response;
-import org.testng.Assert;
+        import static com.sun.corba.se.impl.util.Version.asString;
+        import static io.restassured.RestAssured.*;
+        import io.restassured.response.Response;
+        import org.testng.Assert;
 
 
 public class SampleStepDefs {
@@ -68,14 +71,24 @@ public class SampleStepDefs {
         Assert.assertEquals(code, 200);
     }
 
+
     @Then("^I receive the following JSON array with following:$")
     public void i_receive_the_following_JSON_array_with_following(DataTable table) throws Exception {
         List<List<String>> data = table.raw();
-        System.out.println(" "+data.get(0).get(1));
-        System.out.println(" "+data.get(1).get(1));
-
+        String Expected_TradeName = data.get(0).get(1);
+        System.out.println("Expected Trade name is "+ " " +data.get(0).get(1));
         String body=get(APIPath+"/"+id).asString();
         long time=get(APIPath+"/"+id).getTime();
+        Assert.assertEquals(body.contains(Expected_TradeName), true , "Response body contains"+ Expected_TradeName);
+
+        String Expected_TradeMode = data.get(1).get(1);
+        System.out.println("Expected Trade Mode is "+data.get(1).get(1));
+        Assert.assertEquals(body.contains(Expected_TradeMode),true,"Response body contains"+ Expected_TradeMode);
+
+
+        String Expected_Date = data.get(2).get(1);
+        System.out.println("Expected Date is " +data.get(2).get(1));
+        Assert.assertEquals(body.contains(Expected_Date),true,"Response body contains"+ Expected_Date);
 
         System.out.println("Data is : "+body);
         System.out.println("Response Time "+time);
