@@ -6,7 +6,9 @@ Feature:
   Scenario Outline: Testing directly API
     Given I have a running wiremock server with <port>
     When I run the server with <port>,<url> with <path>
-    Then can see the server running with <port>,<url> and with <content>
+    Then can see the server running with <port>,<url> and with <content> 
+    And I wait 2 hour
+    And I requested 42 trades
 
     Examples:
 
