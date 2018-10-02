@@ -9,6 +9,9 @@ Feature:
     Then can see the server running with <port>,<url> and with <content> 
     And I wait 2 hour
     And I requested 42 trades
+    And I receive the JSON array of 20 records
+    
+    
 
     Examples:
 
